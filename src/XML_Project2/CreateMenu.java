@@ -59,26 +59,7 @@ public class CreateMenu extends JFrame{
         //Barre de menu 
         JMenuBar bmenu = new JMenuBar();
         //Menus 
-        JMenu fichier = new JMenu("Fichier");
-        JMenu editer = new JMenu("Editer");
         JMenu project = new JMenu("Projet");
-        //SOus menu File
-        JMenuItem newfile = new JMenuItem("Nouveau");
-        newfile.setName("newfile");
-        newfile.addActionListener(l);
-        JMenuItem saveFile = new JMenuItem("Sauvegarder");
-        saveFile.setName("savefile");
-        saveFile.addActionListener(l);
-        JMenuItem quitFile = new JMenuItem("Quitter");
-        quitFile.setName("quitfile");
-        quitFile.addActionListener(l);
-        //Sous menu editer
-        JMenuItem newEdit = new JMenuItem("Nouveau");
-        newEdit.setName("newedit");
-        newEdit.addActionListener(l);
-        JMenuItem undoEdit = new JMenuItem("undo");
-        undoEdit.setName("undoedit");
-        undoEdit.addActionListener(l);
         
         //Sous menu projet
         JMenuItem newProjet = new JMenuItem("Nouveau");
@@ -87,39 +68,41 @@ public class CreateMenu extends JFrame{
         JMenuItem loadProjet = new JMenuItem("Charger");
         loadProjet.setName("loadproject");
         loadProjet.addActionListener(l);
-        project.addSeparator();
+        //project.addSeparator();
+        //Projet -> element
         JMenu elementProjet = new JMenu("Elements");
-        JMenuItem elementAdd = new JMenuItem("Ajouter");
-        elementAdd.setName("newelement");
-        elementAdd.addActionListener(l);
-        JMenuItem elementModif = new JMenuItem("Modifier");
-        elementModif.setName("editelement");
-        elementModif.addActionListener(l);
-        JMenuItem elementDelete = new JMenuItem("Supprimer");
-        elementDelete.setName("deleteelement");
-        elementDelete.addActionListener(l);
-        elementProjet.add(elementAdd);
-        elementProjet.add(elementModif);
-        elementProjet.add(elementDelete);
         JMenuItem deleteProjet = new JMenuItem("Supprimer");
         deleteProjet.setName("deleteproject");
         deleteProjet.addActionListener(l);
-       
+        //Projet->element->ajouter
+        JMenu elementProjetAdd = new JMenu("Ajouter");
+        JMenuItem source = new JMenuItem("Source");
+        source.setName("AddSource");
+        source.addActionListener(l);
+        JMenuItem adapter = new JMenuItem("Adapteur");
+        adapter.setName("AddAdapter");
+        adapter.addActionListener(l);
+        elementProjetAdd.add(source);
+        elementProjetAdd.add(adapter);
+        elementProjet.add(elementProjetAdd);
+        //Projet->element->supprimer
+        JMenu elementProjetDel = new JMenu("Supprimer");
+        JMenuItem sourced = new JMenuItem("Source");
+        sourced.setName("DelSource");
+        sourced.addActionListener(l);
+        JMenuItem adapterd = new JMenuItem("Adapteur");
+        adapterd.setName("AddAdapter");
+        adapterd.addActionListener(l);
+        elementProjetDel.add(sourced);
+        elementProjetDel.add(adapter);
+        elementProjet.add(elementProjetDel);
         //On ajoute les menuitem aux menus
-        fichier.add(newfile);
-        fichier.add(saveFile);
-        fichier.add(quitFile);
-        editer.add(newEdit);
-        editer.add(undoEdit);
         project.add(newProjet);
         project.add(loadProjet);
         project.add(elementProjet);
         project.add(deleteProjet);
-        bmenu.add(fichier);
-        bmenu.add(editer);
         bmenu.add(project);
         
-
         //Ajout de la barre sur le container
 	    f.setJMenuBar(bmenu);
 

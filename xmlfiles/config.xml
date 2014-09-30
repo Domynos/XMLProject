@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<xmlApplication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esgi="http://esgi-xml" version="0.1" xsi:noNamespaceSchemaLocation="xmlApplication.xsd" xsi:schemaLocation="http://esgi-xml.xmlApplication.xsd">
+	<application>
+		<adapters>
+			<adapter type="SQL">SQLadapter</adapter>
+			<adapter type="JSon">JSon adapter</adapter>
+		</adapters>
+		<sources>
+			<source type="SQL">mySql Database</source>
+			<source type="JSon">jSon Database</source>
+		</sources>
+	</application>
+</xmlApplication>
