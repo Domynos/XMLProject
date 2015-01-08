@@ -26,7 +26,7 @@ public class ContextuelListener implements ActionListener{
 				source.setVisible(false);
 			break;
 		case "requetteItem":
-			JOptionPane.showInputDialog("Requetteur xpath pour "+source.getName());
+			String entry = JOptionPane.showInputDialog("Requetteur xpath pour "+source.getName());
 			break;
 		default : 
 			break;
