@@ -2,6 +2,7 @@ package XML_Project2;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
@@ -21,6 +22,8 @@ import java.awt.event.MouseEvent;
 import java.io.Console;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -81,7 +84,7 @@ public class MainWindow {
     }
 
     private static JPanel createEmptyJPanel(String title) {
-        final JPanel p = new JPanel() {
+       JPanel p = new JPanel() {
             @Override
             public Dimension getPreferredSize() {
         		Dimension tailleEcran = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
@@ -136,30 +139,15 @@ public class MainWindow {
         adapterPanel.setBorder(new TitledBorder("Adapteurs"));
         JPanel sourcePanel = new JPanel();
         sourcePanel.setBorder(new TitledBorder("Sources"));
-        JLabel label1 = new JLabel(new ImageIcon("images/adapters/alcazar.gif"));
-        JLabel label2 = new JLabel(new ImageIcon("images/adapters/alvarez.gif"));
-        JLabel label3 = new JLabel(new ImageIcon("images/adapters/bacter.gif"));
-        JLabel label4 = new JLabel(new ImageIcon("images/adapters/capone.gif"));
-        JLabel label5 = new JLabel(new ImageIcon("images/adapters/dupond.gif"));
-        JLabel label6 = new JLabel(new ImageIcon("images/adapters/dupont.gif"));
-        JLabel label7 = new JLabel(new ImageIcon("images/adapters/haddock.gif"));
-        JLabel label8 = new JLabel(new ImageIcon("images/adapters/koko.gif"));
-        JLabel label9 = new JLabel(new ImageIcon("images/adapters/lampion.gif"));
-        JLabel label10 = new JLabel(new ImageIcon("images/sources/mateo.gif"));
-        JLabel label11 = new JLabel(new ImageIcon("images/sources/milou.gif"));
-        JLabel label12 = new JLabel(new ImageIcon("images/sources/muller.gif"));
-        JLabel label13 = new JLabel(new ImageIcon("images/sources/nestor.gif"));
-        JLabel label14 = new JLabel(new ImageIcon("images/sources/bacter.gif"));
-        JLabel label15 = new JLabel(new ImageIcon("images/sources/pablo.gif"));
-        JLabel label16 = new JLabel(new ImageIcon("images/sources/prof.gif"));
-        JLabel label17 = new JLabel(new ImageIcon("images/sources/prof2.gif"));
-        JLabel label18 = new JLabel(new ImageIcon("images/sources/skharine.gif"));
-        JLabel label19 = new JLabel(new ImageIcon("images/sources/sponz.gif"));
-        JLabel label20 = new JLabel(new ImageIcon("images/sources/tchang.gif"));
-        JLabel label21 = new JLabel(new ImageIcon("images/sources/tintin.gif"));
-        JLabel label22 = new JLabel(new ImageIcon("images/sources/tournesol.gif"));
-        JLabel label23 = new JLabel(new ImageIcon("images/sources/wagner.gif"));
-        JLabel label24 = new JLabel(new ImageIcon("images/sources/wolf.gif"));
+        JLabel label1 = new JLabel(new ImageIcon("images/adapters/csv.gif"));
+        JLabel label2 = new JLabel(new ImageIcon("images/adapters/json.gif"));
+        JLabel label3 = new JLabel(new ImageIcon("images/adapters/sql.gif"));
+        JLabel label4 = new JLabel(new ImageIcon("images/adapters/xml.gif"));
+        JLabel label5 = new JLabel(new ImageIcon("images/sources/csv.gif"));
+        JLabel label6 = new JLabel(new ImageIcon("images/sources/json.gif"));
+        JLabel label7 = new JLabel(new ImageIcon("images/sources/sql.gif"));
+        JLabel label8 = new JLabel(new ImageIcon("images/sources/xml.gif"));
+
         
         MyDragGestureListener dlistener = new MyDragGestureListener();
         DragSource ds1 = new DragSource();
@@ -178,69 +166,116 @@ public class MainWindow {
         ds7.createDefaultDragGestureRecognizer(label7, DnDConstants.ACTION_COPY, dlistener);
         DragSource ds8 = new DragSource();
         ds8.createDefaultDragGestureRecognizer(label8, DnDConstants.ACTION_COPY, dlistener);
-        DragSource ds9 = new DragSource();
-        ds9.createDefaultDragGestureRecognizer(label9, DnDConstants.ACTION_COPY, dlistener);
-        DragSource ds10 = new DragSource();
-        ds10.createDefaultDragGestureRecognizer(label10, DnDConstants.ACTION_COPY, dlistener);
-        DragSource ds11 = new DragSource();
-        ds11.createDefaultDragGestureRecognizer(label11, DnDConstants.ACTION_COPY, dlistener);
-        DragSource ds12 = new DragSource();
-        ds12.createDefaultDragGestureRecognizer(label12, DnDConstants.ACTION_COPY, dlistener);
-        DragSource ds13 = new DragSource();
-        ds13.createDefaultDragGestureRecognizer(label13, DnDConstants.ACTION_COPY, dlistener);
-        DragSource ds14 = new DragSource();
-        ds14.createDefaultDragGestureRecognizer(label14, DnDConstants.ACTION_COPY, dlistener);
-        DragSource ds15 = new DragSource();
-        ds15.createDefaultDragGestureRecognizer(label15, DnDConstants.ACTION_COPY, dlistener);
-        DragSource ds16 = new DragSource();
-        ds16.createDefaultDragGestureRecognizer(label16, DnDConstants.ACTION_COPY, dlistener);
-        DragSource ds17 = new DragSource();
-        ds17.createDefaultDragGestureRecognizer(label17, DnDConstants.ACTION_COPY, dlistener);
-        DragSource ds18 = new DragSource();
-        ds18.createDefaultDragGestureRecognizer(label18, DnDConstants.ACTION_COPY, dlistener);
-        DragSource ds19 = new DragSource();
-        ds19.createDefaultDragGestureRecognizer(label19, DnDConstants.ACTION_COPY, dlistener);
-        DragSource ds20 = new DragSource();
-        ds20.createDefaultDragGestureRecognizer(label20, DnDConstants.ACTION_COPY, dlistener);
-        DragSource ds21 = new DragSource();
-        ds21.createDefaultDragGestureRecognizer(label21, DnDConstants.ACTION_COPY, dlistener);
-        DragSource ds22 = new DragSource();
-        ds22.createDefaultDragGestureRecognizer(label22, DnDConstants.ACTION_COPY, dlistener);
-        DragSource ds23 = new DragSource();
-        ds23.createDefaultDragGestureRecognizer(label23, DnDConstants.ACTION_COPY, dlistener);
-        DragSource ds24 = new DragSource();
-        ds24.createDefaultDragGestureRecognizer(label24, DnDConstants.ACTION_COPY, dlistener);
-
+       
         
         adapterPanel.add(label1);
         adapterPanel.add(label2);
         adapterPanel.add(label3);
         adapterPanel.add(label4);
-        adapterPanel.add(label5);
-        adapterPanel.add(label6);
-        adapterPanel.add(label7);
-        adapterPanel.add(label8);
-        adapterPanel.add(label9);
-        sourcePanel.add(label10);
-        sourcePanel.add(label11);
-        sourcePanel.add(label12);
-        sourcePanel.add(label13);
-        sourcePanel.add(label14);
-        sourcePanel.add(label15);
-        sourcePanel.add(label16);
-        sourcePanel.add(label17);
-        sourcePanel.add(label18);
-        sourcePanel.add(label19);
-        sourcePanel.add(label20);
-        sourcePanel.add(label21);
-        sourcePanel.add(label22);
-        sourcePanel.add(label23);
-        sourcePanel.add(label24);
+        sourcePanel.add(label5);
+        sourcePanel.add(label6);
+        sourcePanel.add(label7);
+        sourcePanel.add(label8);
         GridLayout experimentLayout = new GridLayout(0,2);
         panel.setLayout(experimentLayout);
         panel.add(adapterPanel);
         panel.add(sourcePanel);
         return panel;
+    }
+    static void addElementByLoad(String elementName, String type)
+    {
+    	//On recupere nos deux JPanels source et adapter
+    	JPanel source = null;
+    	JPanel adapter = null;
+    	menuContextuel menu = new menuContextuel();
+    	JPanel p = (JPanel) frame.getContentPane();
+    	for(Component c : p.getComponents())
+    	{
+    		JPanel d = (JPanel) c;
+    		if("Adapters" == d.getName())
+    		{
+    			adapter = d;
+    		}
+    		if("Sources" == d.getName())
+    		{
+    			source = d;
+    		}
+    	}
+    	//On créé l'élément à ajouter
+    	JLabel label = new JLabel(new ImageIcon("images/"+type+"/"+elementName));
+    	label.setName(elementName);
+    	label.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+            	int buttonIndex = Integer.parseInt(e.paramString().substring(((e.paramString().indexOf("button=")+7)),((e.paramString().indexOf("button=")+8))));
+					if(3 == buttonIndex)//RightClick
+					{
+						//Affichage menu contextuel
+						menu.setParent(label);
+						menu.show(e.getComponent(), e.getX(), e.getY());
+					}
+            }
+        });
+    	if(type.equals("adapters"))
+    	{
+    		adapter.add(label);
+            adapter.revalidate();
+            adapter.repaint();
+    	}
+    	if(type.equals("sources"))
+    	{
+    		source.add(label);
+            source.revalidate();
+            source.repaint();
+    	}
+    }
+    static void cleanWindow(){
+    	JPanel p = (JPanel) frame.getContentPane();
+    	for(Component c : p.getComponents())
+    	{
+			JPanel d = (JPanel) c;
+    		if("Adapters" == c.getName() || "Sources" == c.getName())
+    		{
+    			for(Component l : d.getComponents())
+    			{
+    				l.setVisible(false);
+    			}
+    		}
+    	}
+    }
+    static void close(){
+    	frame.setVisible(false);
+    }
+    static ArrayList<String> getWindowAdpaters(){
+    	ArrayList<String> result = new ArrayList();
+    	JPanel p = (JPanel) frame.getContentPane();
+    	for(Component c : p.getComponents())
+    	{
+    		JPanel d = (JPanel) c;
+    		if("Adapters" == c.getName())
+    		{
+    			for(Component l : d.getComponents())
+    			{
+    				result.add(l.getName());
+    			}
+    		}
+    	}
+    	return result;
+    }
+    static ArrayList<String> getWindowSources(){
+    	ArrayList<String> result = new ArrayList();
+    	JPanel p = (JPanel) frame.getContentPane();
+    	for(Component c : p.getComponents())
+    	{
+    		JPanel d = (JPanel) c;
+    		if("Sources" == c.getName())
+    		{
+    			for(Component l : d.getComponents())
+    			{
+    				result.add(l.getName());
+    			}
+    		}
+    	}
+		return result;
     }
 }
 

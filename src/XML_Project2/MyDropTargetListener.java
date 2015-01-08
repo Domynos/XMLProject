@@ -21,6 +21,7 @@ class MyDropTargetListener extends DropTargetAdapter {
 
     private DropTarget dropTarget;
     private JPanel p;
+    public menuContextuel menu = new menuContextuel();
 
     public MyDropTargetListener(JPanel panel) {
         p = panel;
@@ -39,12 +40,20 @@ class MyDropTargetListener extends DropTargetAdapter {
                 if (ico != null) {
                 	if(ico.toString().contains(test.getComponent().getName().toLowerCase()))
                 	{
+                		String icoName = ico.toString();
+                		int index = icoName.lastIndexOf('/');
+                		icoName = icoName.substring(index+1, icoName.length());
                 		final JLabel replace = new JLabel(ico);
+                		replace.setName(icoName);
                         replace.addMouseListener(new MouseAdapter() {
                             public void mouseClicked(MouseEvent e) {
                             	int buttonIndex = Integer.parseInt(e.paramString().substring(((e.paramString().indexOf("button=")+7)),((e.paramString().indexOf("button=")+8))));
 									if(3 == buttonIndex)//RightClick
-										System.out.println("Right click");
+									{
+										//Affichage menu contextuel
+										menu.setParent(replace);
+										menu.show(e.getComponent(), e.getX(), e.getY());
+									}
                             }
                         });
 	                    p.add(replace);
@@ -54,7 +63,7 @@ class MyDropTargetListener extends DropTargetAdapter {
 	                    event.dropComplete(true);
                 	}else
                 	{
-                		JOptionPane.showMessageDialog(null, "Can't drop, this is not a "+test.getComponent().getName().toLowerCase()+" biatch");
+                		JOptionPane.showMessageDialog(null, "Impossible de copier l'élément, il n'est pas de type "+test.getComponent().getName().toLowerCase());
                 	}
                 }
             } else {
