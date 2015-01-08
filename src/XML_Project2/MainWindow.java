@@ -182,6 +182,21 @@ public class MainWindow {
         panel.add(sourcePanel);
         return panel;
     }
+    static boolean isEverDropedAdapter(String componentName)
+    {
+    	JPanel adapter = null;
+    	JPanel p = (JPanel) frame.getContentPane();
+    	for(Component c : p.getComponents())
+    	{
+    		JPanel d = (JPanel) c;
+    		//Récupère le panel Adapteur
+    		if("Adapters" == d.getName())
+    		{
+    			adapter = d;
+    		}
+    	}
+    	return false;
+    }
     static void addElementByLoad(String elementName, String type)
     {
     	//On recupere nos deux JPanels source et adapter
@@ -255,6 +270,7 @@ public class MainWindow {
     		{
     			for(Component l : d.getComponents())
     			{
+    				if(l.isVisible())
     				result.add(l.getName());
     			}
     		}
@@ -271,6 +287,7 @@ public class MainWindow {
     		{
     			for(Component l : d.getComponents())
     			{
+    				if(l.isVisible())
     				result.add(l.getName());
     			}
     		}

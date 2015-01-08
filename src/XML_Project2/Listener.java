@@ -22,8 +22,14 @@ public class Listener implements ActionListener{
 	int result;
 	switch(ClickedButton)
 	{
+		case "startSimulation" : 
+			JOptionPane.showMessageDialog(null, "start");
+			break;
+		case "checkSimulation" : 
+			Xml_utils.checkXmlDocumentIntegrity();
+			break;
 		case "newSimulation":
-			JOptionPane.showMessageDialog(null, "coucou");
+			JOptionPane.showMessageDialog(null, "nouveau");
 			break;
 		case "loadSimulation":
 			JFileChooser loadFileChooser = new JFileChooser();

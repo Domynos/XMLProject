@@ -62,23 +62,31 @@ public class CreateMenu extends JFrame{
         JMenu simulation = new JMenu("Simulation");
         
         //Sous menu simulation
+        JMenuItem startSimulation = new JMenuItem("Démarrer");
+        JMenuItem checkSimulation = new JMenuItem("Vérifier");
         JMenuItem newSimulation = new JMenuItem("Nouveau");
         JMenuItem loadSimulation = new JMenuItem("Charger");
         JMenuItem saveSimulation = new JMenuItem("Sauvegarder");
         JMenuItem deleteSimulation = new JMenuItem("Supprimer");
         JMenuItem quitSimulation = new JMenuItem("Quitter");
         	//On set les noms
+        	startSimulation.setName("startSimulation");
+        	checkSimulation.setName("checkSimulation");
 	        newSimulation.setName("newSimulation");
 	        loadSimulation.setName("loadSimulation");
 	        saveSimulation.setName("saveSimulation");
 	        deleteSimulation.setName("deleteSimulation");
 	        quitSimulation.setName("quitSimulation");
 	        //Ajout des listeners
+	        startSimulation.addActionListener(l);
+	        checkSimulation.addActionListener(l);
 	        newSimulation.addActionListener(l);
 	        loadSimulation.addActionListener(l);
 	        saveSimulation.addActionListener(l);
 	        deleteSimulation.addActionListener(l);
 	        quitSimulation.addActionListener(l);
+	    simulation.add(startSimulation);
+	    simulation.add(checkSimulation);
 	    simulation.add(newSimulation);
 	    simulation.add(loadSimulation);
 	    simulation.add(saveSimulation);

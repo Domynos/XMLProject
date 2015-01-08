@@ -56,10 +56,15 @@ class MyDropTargetListener extends DropTargetAdapter {
 									}
                             }
                         });
-	                    p.add(replace);
-	                    p.revalidate();
-	                    p.repaint();
-	                    Xml_utils.readConfigFile("xmlfiles/config.xml");
+                        if(MainWindow.isEverDropedAdapter(icoName) == true)
+                        {
+                        	JOptionPane.showInputDialog("L'adapter existe déjà");
+                        }else
+                        {
+		                    p.add(replace);
+		                    p.revalidate();
+		                    p.repaint();
+                        }
 	                    event.dropComplete(true);
                 	}else
                 	{
